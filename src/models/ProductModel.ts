@@ -7,6 +7,13 @@ class ProductModel {
 
     return allProducts as IProduct[];
   }
+
+  static async create(product: IProduct) {
+    const createQuery = 'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)';
+    const [newProduct] = await connection.execute(createQuery, [product.name, product.amount]);
+
+    return newProduct as { insertId: number };
+  }
 }
 
 export default ProductModel;
