@@ -9,7 +9,7 @@ class UserService {
 
     const token = jwt.sign(
       { id: newUser.insertId },
-      process.env.JWT_SECRET as Secret,
+      'segredosecreto' as Secret,
       jwtConfig as SignOptions,
     );
 
