@@ -7,10 +7,10 @@ class OrderService {
     const products = await ProductModel.getAll();
 
     return orders.map((o) => {
-      const productIds = products.filter((p) => p.id === o.id).map((p) => p.id);
+      const productsIds = products.filter((p) => p.orderId === o.id).map((p) => p.id);
       return {
         ...o,
-        productIds,
+        productsIds,
       };
     });
   }
